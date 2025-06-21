@@ -16,6 +16,13 @@ class TestCart:
         cart.remove_product(product,1)
         assert cart.products[product] == 4
 
+    def test_remove_product_equal_exist_in_cart(self, cart, product):
+        count = 10
+        cart.add_product(product,count)
+        cart.remove_product(product,count)
+        assert cart.products[product] == 0
+
+
     def test_remove_product_more_then_exist(self, cart, product):
         cart.add_product(product,5)
         cart.remove_product(product,6)
